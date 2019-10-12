@@ -16,7 +16,6 @@ void setup() {
 }
 
 void loop() {
-  Wire.beginTransmission(SLAVE_ADDRESS);
   // Request 4 bytes from slave device (slave may send less)
   Wire.requestFrom(SLAVE_ADDRESS, BYTES_TO_REQUEST);    
   // Read the bytes on the bus, two at a time
@@ -25,8 +24,6 @@ void loop() {
   }
   // Print the complete value received.
   Serial.println(slaveIncomingValue);   
-    
-  Wire.endTransmission();
   // Read again from the slave in 5 seconds.
   delay(5000);
 }
